@@ -30,22 +30,24 @@ function Header({ logoText }) {
         <header>
             <div className='nickname'>닉네임</div>      {/* 나중에 연결 */}
             <div className="logo">{logoText}</div>      {/* 페이지 이름 */}
-            <div className='icon'>                      {/* 아이콘 모음 */}
-                <div className='cart'>                  {/* 장바구니 */}
-                    <div className='cart-button'>
-                        <Link to="/cart"> {Cart}
-                            <img src={CartIcon} alt="Cart" />
-                        </Link>
+            <div className='icon-wrap'>
+                <div className='icon'>                      {/* 아이콘 모음 */}
+                    <div className='cart'>                  {/* 장바구니 */}
+                        <div className='cart-button'>
+                            <Link to="/cart"> {Cart}
+                                <img src={CartIcon} alt="Cart" />
+                            </Link>
+                        </div>
                     </div>
-                </div>
-                <div className='qr'>         {/* QR코드 */}
-                    <Qr />                   {/* 모달창 띄우는 컴포넌트 */}
-                </div>
-                <div className='list' onBlur={handleBlurContainer}>         {/* 메뉴 드롭다운_onBlur 사용 */}
-                    <button className="list-button" onClick={handleClickContainer}>
-                        <img src={ListIcon} alt="List" />
-                        {isDropdownView && <Dropdown />}
-                    </button>
+                    <div className='qr'>         {/* QR코드 */}
+                        <Qr />                   {/* 모달창 띄우는 컴포넌트 */}
+                    </div>
+                    <div className='list' onBlur={handleBlurContainer}>         {/* 메뉴 드롭다운_onBlur 사용 */}
+                        <button className="list-button" onClick={handleClickContainer}>
+                            <img src={ListIcon} alt="List" />
+                            {isDropdownView && <Dropdown />}
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>

@@ -1,7 +1,7 @@
 header {
     background-color: white;
     color: #fff;
-    height: 50px;
+    height: 60px;
     padding: 25px;
     padding-top: 100px;
 }
@@ -16,17 +16,26 @@ header {
 }
 
 .nickname {
+    width: 100%;
+    display: block;
     color: black;
+    text-align: right;
+}
+
+.icon-wrap {
     display: inline-block;
-    float: right;
+    width: 35%;
+    height: 40px;
+    margin-left: 3%;
+    padding-right: 0;
 }
 
 .icon {
-    width: 35%;
+    width: 40%;
     height: 40px;
     display: inline-flex;
     margin-left: 5%;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
