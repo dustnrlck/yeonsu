@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import QrIcon from './icon/icon-qr-code.png';
-import QrImg from './img/QR_example.png';
+import QrIcon from '../icon/icon-qr-code.png';
+import QrImg from '../img/QR_example.png';
 
 function Qr() {
     const [modalIsOpen, setModalIsOpen] = useState(false);

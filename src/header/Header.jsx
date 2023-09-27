@@ -1,12 +1,9 @@
 import './Header.css';
 import React, {useState} from 'react';
-import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 
-import CartIcon from './icon/icon-shopping-cart.png';
-import ListIcon from './icon/icon-ui.png';
-import QrIcon from './icon/icon-qr-code.png';
-import QrImg from './img/QR_example.png';
+import CartIcon from '../icon/icon-shopping-cart.png';
+import ListIcon from '../icon/icon-ui.png';
 
 import Cart from '../menu/Cart';
 import Qr from './Qr';

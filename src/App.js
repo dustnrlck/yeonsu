@@ -2,16 +2,20 @@ import './App.css';
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes, Switch, Link, RouterProvider } from "react-router-dom";
 
-import Login from './verification/Login';
 import Splash from './verification/Splash';
-import ReviewMain from "./review/ReviewMain";
+import Login from './verification/Login';
 import SignUp from './verification/SignUp';
+
 import MyPage from './inform/MyPage';
 import Information from './inform/Information';
-import MenuMain from './menu/MenuMain';
 import Reservation from './reservation/Reservation';
-import Cart from './menu/Cart';
+import ReviewMain from "./review/ReviewMain";
+
 import Tournament from './tournament/Tournament';
+
+import MenuMain from './menu/MenuMain';
+import Cart from './menu/Cart';
+import CartBookmark from './menu/CartBookmark';
 
 function App() {
   return (
@@ -27,6 +31,7 @@ function App() {
         <Route path='/reservation' element={<Reservation />} />   {/* 자리 예약 */}
         <Route path='/cart' element={<Cart />} />
         <Route path='/tournament' element={<Tournament />} />
+        <Route path='/bookmark' element={<CartBookmark />} />
       </Routes>
     </>
 );
