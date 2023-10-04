@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CartIcon from '../icon/icon-shopping-cart.png';
 import ListIcon from '../icon/icon-ui.png';
 
-import Cart from '../menu/Cart';
+import Cart from '../cart/Cart';
 import Qr from './Qr';
 import Dropdown from './Dropdown';
 
