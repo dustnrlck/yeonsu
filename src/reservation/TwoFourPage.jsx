@@ -1,10 +1,10 @@
-import './Reservation.css';
+import './TwoFourPage.css';
 import Header from '../header/Header';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ResModal from './ResModal';
 
-function Reservation() {
+function TwoFourPage() {
     const logoText = "좌석 예약";
     const [selectedOption, setSelectedOption] = useState("");
     const dropdownOptions = [
@@ -22,9 +22,8 @@ function Reservation() {
     const closeModal = () => {
         setModalIsOpen(false);
     }
-    
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
 
     // 사용자가 드롭다운을 선택할 때마다 호출되는 함수
     const handleDropdownChange = (e) => {
@@ -40,31 +39,56 @@ function Reservation() {
         }
     }, [selectedOption, navigate]);
 
+    // 테이블, 의자에 할당할 텍스트 배열
+    const ftableLabels = ["A", "B", "C", "D"];
+    const fchairLabels = ["a", "b", "c", "d"];
 
+    // 4인 테이블, 의자 배치
+    const ftables = [];
+    for (let i = 0; i < ftableLabels.length; i++) {
+        const ftableLabel = ftableLabels[i];
+        const ftopChairLabel = fchairLabels[i];
+        const fbottomChairLabel = fchairLabels[i];
 
-    // 테이블에 할당할 텍스트 배열
-    const tableLabels = ["A", "B", "C", "D", "E", "F"];
-
-    // 테이블, 의자 배치
-    const tables = [];
-    for (let i = 0; i < 6; i++) {
-        tables.push(
-            <div key={i} className="table">
-                <div className="table-text">{tableLabels[i]}</div>
-                <div className="table-top-chairs">
-                    <div className="chair" onClick={openModal}>
-                        <span>1</span>
-                    </div>
-                    <div className="chair" onClick={openModal}>
-                        <span>2</span>
+        ftables.push(
+            <div key={i} className="ftable">
+                <div className="f-table-text">{ftableLabel}</div>
+                <div className="f-table-top-chairs">
+                    <div className="fchair" onClick={openModal}>
+                        <span>{ftopChairLabel}</span>
                     </div>
                 </div>
-                <div className="table-bottom-chairs">
-                    <div className="chair" onClick={openModal}>
-                        <span>3</span>
+                <div className="f-table-bottom-chairs">
+                    <div className="fchair" onClick={openModal}>
+                        <span>{fbottomChairLabel}</span>
                     </div>
-                    <div className="chair" onClick={openModal}>
-                        <span>4</span>
+                </div>
+            </div>
+        );
+    }
+
+    // 테이블, 의자에 할당할 텍스트 배열
+    const ttableLabels = ["E", "F", "G", "O"];
+    const tchairLabels = ["e", "f", "g", "o"];
+
+    // 2인 테이블, 의자 배치
+    const ttables = [];
+    for (let i = 0; i < ttableLabels.length; i++) {
+        const ttableLabel = ttableLabels[i];
+        const ttopChairLabel = tchairLabels[i];
+        const tbottomChairLabel = tchairLabels[i];
+
+        ttables.push(
+            <div key={i} className="ttable">
+                <div className="t-table-text">{ttableLabel}</div>
+                <div className="t-table-top-chairs">
+                    <div className="tchair" onClick={openModal}>
+                        <span>{ttopChairLabel}</span>
+                    </div>
+                </div>
+                <div className="t-table-bottom-chairs">
+                    <div className="tchair" onClick={openModal}>
+                        <span>{tbottomChairLabel}</span>
                     </div>
                 </div>
             </div>
@@ -79,7 +103,7 @@ function Reservation() {
                     <select
                         value={selectedOption}
                         onChange={handleDropdownChange}
-                        >
+                    >
                         <option value="">좌석 이용 인원</option>
                         {dropdownOptions.map((option, index) => (
                             <option key={index} value={option}>
@@ -93,15 +117,15 @@ function Reservation() {
             {/* 모달 렌더링 */}
             <ResModal isOpen={modalIsOpen} closeModal={closeModal} content="의자 정보를 표시합니다." />
 
-
             {/* 테이블 렌더링 */}
-            <div className="tables-container">
-                {tables}
+            <div className="f-tables-container">
+                {ftables}
             </div>
-
-
+            <div className="t-tables-container">
+                {ttables}
+            </div>
         </div>
     );
 }
 
-export default Reservation;
+export default TwoFourPage;

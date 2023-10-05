@@ -10,6 +10,8 @@ import SignUp from './verification/SignUp';
 import MyPage from './inform/MyPage';
 import Information from './inform/Information';
 import Reservation from './reservation/Reservation';
+import TwoFourPage from './reservation/TwoFourPage';
+import ResModal from './reservation/ResModal';
 import ReviewMain from "./review/ReviewMain";
 
 import Tournament from './tournament/Tournament';
@@ -39,6 +41,8 @@ function App() {
         <Route path='/mypage' element={<MyPage />} />
         <Route path='/information' element={<Information />} />   {/* 내 정보 */}
         <Route path='/reservation' element={<Reservation />} />   {/* 자리 예약 */}
+        <Route path="/twofourpage" element={<TwoFourPage />} />
+        <Route path="/resmodal" element={<ResModal />} />
         <Route path='/tournament' element={<Tournament />} />     {/* 토너먼트 */}
         <Route path='/cart' element={<Cart />} />                 {/* 장바구니 */}
         <Route path='/bookmark' element={<CartBookmark />} />     {/* 장바구니 즐겨찾기 */}
