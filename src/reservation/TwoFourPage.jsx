@@ -1,8 +1,8 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ResModal24 from './ResModal24';
 import './TwoFourPage.css';
 import Header from '../header/Header';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ResModal from './ResModal';
 
 function TwoFourPage() {
     const logoText = "좌석 예약";
@@ -14,8 +14,10 @@ function TwoFourPage() {
 
     // 의자선택모달
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedSeatCount, setSelectedSeatCount] = useState(0);
 
-    const openModal = () => {
+    const openModal = (seatCount) => {
+        setSelectedSeatCount(seatCount);
         setModalIsOpen(true);
     }
 
@@ -35,7 +37,8 @@ function TwoFourPage() {
         if (selectedOption === "1인석") {
             navigate("/Reservation");
         } else if (selectedOption === "2인석, 4인석") {
-            navigate("/twofourpage");
+            setSelectedSeatCount(0); // 초기화
+            openModal(0); // 모달 열기
         }
     }, [selectedOption, navigate]);
 
@@ -54,12 +57,12 @@ function TwoFourPage() {
             <div key={i} className="ftable">
                 <div className="f-table-text">{ftableLabel}</div>
                 <div className="f-table-top-chairs">
-                    <div className="fchair" onClick={openModal}>
+                    <div className="fchair" onClick={() => openModal(4)}>
                         <span>{ftopChairLabel}</span>
                     </div>
                 </div>
                 <div className="f-table-bottom-chairs">
-                    <div className="fchair" onClick={openModal}>
+                    <div className="fchair" onClick={() => openModal(4)}>
                         <span>{fbottomChairLabel}</span>
                     </div>
                 </div>
@@ -82,12 +85,12 @@ function TwoFourPage() {
             <div key={i} className="ttable">
                 <div className="t-table-text">{ttableLabel}</div>
                 <div className="t-table-top-chairs">
-                    <div className="tchair" onClick={openModal}>
+                    <div className="tchair" onClick={() => openModal(2)}>
                         <span>{ttopChairLabel}</span>
                     </div>
                 </div>
                 <div className="t-table-bottom-chairs">
-                    <div className="tchair" onClick={openModal}>
+                    <div className="tchair" onClick={() => openModal(2)}>
                         <span>{tbottomChairLabel}</span>
                     </div>
                 </div>
@@ -115,7 +118,7 @@ function TwoFourPage() {
             </div>
 
             {/* 모달 렌더링 */}
-            <ResModal isOpen={modalIsOpen} closeModal={closeModal} content="의자 정보를 표시합니다." />
+            <ResModal24 isOpen={modalIsOpen} closeModal={closeModal} seatCount={selectedSeatCount} />
 
             {/* 테이블 렌더링 */}
             <div className="f-tables-container">
